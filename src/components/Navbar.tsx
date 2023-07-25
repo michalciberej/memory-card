@@ -11,7 +11,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="flex justify-between items-center bg-blue-900 shadow-lg px-8 py-2">
+    <nav className="flex justify-between items-center bg-red-900 shadow-lg px-8 py-2">
       <h1 className="text-3xl text-white">Logo</h1>
       <div onClick={handleHover}>
         <Icon
@@ -30,7 +30,7 @@ function Info() {
     <>
       <div
         id="info"
-        className="flex flex-wrap p-4 absolute top-8 right-4 bg-white rounded-xl text-gray-700 max-w-xs shadow-md"
+        className="flex flex-wrap p-4 absolute z-10 top-8 right-4 bg-white rounded-xl text-gray-700 max-w-xs shadow-md"
       >
         <span className="mb-1 text-xl">Game rules:</span>
         <span>
