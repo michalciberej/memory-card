@@ -6,6 +6,7 @@ function Content() {
   const [fetchedData, setFetchedData] = useState([]);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
+  const [selected, setSelected] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,17 +14,42 @@ function Content() {
         "https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood"
       );
       const json = await data.json();
-      console.log(json.meals[0]);
       const result = [];
       for (let i = 0; i < 10; i++) {
         result.push(json.meals[i]);
       }
       setFetchedData(result);
-      console.log(fetchedData);
     };
 
     fetchData().catch(console.error);
   }, []);
+
+  const shuffleCards = () => {
+    let i = null;
+    let p = null;
+    const array = fetchedData.map((obj) => (
+      <Card
+        key={obj.idMeal}
+        name={obj.strMeal}
+        url={obj.strMealThumb}
+        id={obj.idMeal}
+        setScore={setScore}
+        score={score}
+        highScore={highScore}
+        setHighScore={setHighScore}
+        selected={selected}
+        setSelected={setSelected}
+      />
+    ));
+    let l = array.length;
+    while (l) {
+      i = Math.floor(Math.random() * l--);
+      p = array[l];
+      array[l] = array[i];
+      array[i] = p;
+    }
+    return array;
+  };
 
   return (
     <>
@@ -37,14 +63,7 @@ function Content() {
         id="cardsContainer"
         className="mt-6 gap-6 flex justify-center items-center flex-wrap"
       >
-        {fetchedData.map((obj) => (
-          <Card
-            name={obj.strMeal}
-            url={obj.strMealThumb}
-            id={obj.idMeal}
-            key={obj.idMeal}
-          />
-        ))}
+        {shuffleCards()}
       </div>
     </>
   );
