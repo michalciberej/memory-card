@@ -9,7 +9,7 @@ function Card({
   selected,
   setSelected,
 }) {
-  const handleClick = () => {
+  const handleClick = (): void => {
     setSelected(selected.concat(id));
     for (let i = 0; i < selected.length; i++) {
       if (selected[i] == id) {

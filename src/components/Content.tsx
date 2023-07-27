@@ -4,8 +4,8 @@ import Score from "./Score";
 
 function Content() {
   const [fetchedData, setFetchedData] = useState([]);
-  const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
+  const [score, setScore] = useState(0);
   const [selected, setSelected] = useState([]);
 
   useEffect(() => {
@@ -25,8 +25,6 @@ function Content() {
   }, []);
 
   const shuffleCards = () => {
-    let i = null;
-    let p = null;
     const array = fetchedData.map((obj) => (
       <Card
         key={obj.idMeal}
@@ -41,7 +39,10 @@ function Content() {
         setSelected={setSelected}
       />
     ));
-    let l = array.length;
+    let i: number;
+    let p = null;
+    let l: number = array.length;
+
     while (l) {
       i = Math.floor(Math.random() * l--);
       p = array[l];

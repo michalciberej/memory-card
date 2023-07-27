@@ -17,7 +17,7 @@ function Navbar() {
         <Icon
           path={mdiInformationVariantCircleOutline}
           size={1.5}
-          className="text-white"
+          className="text-white hover:animate-pulse"
         />
       </div>
       {hidden && <Info />}
