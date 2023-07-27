@@ -1,10 +1,10 @@
 # Memory card
 
-[Live Demo]()
+[Live Demo](https://extraordinary-sable-323dcb.netlify.app/)
 
 ## Built with:
 
-- [Typescript]()
-- [React]()
-- [Vite]()
-- [Tailwind CSS]()
+- [Typescript](https://www.typescriptlang.org/)
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
