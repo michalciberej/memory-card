@@ -5,7 +5,7 @@ import { useState } from "react";
 function Navbar() {
   const [hidden, setHidden] = useState(false);
 
-  const handleHover = () => {
+  const handleHover = (): void => {
     if (hidden === false) setHidden(true);
     else setHidden(false);
   };
